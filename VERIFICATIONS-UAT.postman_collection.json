@@ -1,0 +1,1094 @@
+{
+  "info": {
+    "_postman_id": "da33ee15-aef7-4761-87bd-e607650ab48e",
+    "name": "VERIFICATIONS-UAT",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "146683",
+    "_collection_link": "https://go.postman.co/collection/30101732-da33ee15-aef7-4761-87bd-e607650ab48e?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "MaxAPTC invoke",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "SOURCE-SYSTEM",
+            "value": "HBE",
+            "type": "default"
+          },
+          {
+            "key": "VERIFICATION-TYPE",
+            "value": "MAX_APTC",
+            "type": "default"
+          },
+          {
+            "key": "USER-ID",
+            "value": "",
+            "type": "default"
+          },
+          {
+            "key": "UUID",
+            "value": "41d0ed72-1886-40b3-2682-10ebf6f7b2a4",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"maxAptcRequest\": {\r\n        \"apcRequest\": {\r\n            \"requestID\": \"288\",\r\n            \"householdIncomeAmount\": \"87600\",\r\n            \"taxYear\": 2023,\r\n            \"incomeFPLPercent\": \"203\",\r\n            \"slcspMonthlyPremiumAmount\": \"1682\"\r\n        },\r\n        \"personId\": 855155,\r\n        \"applicationNumber\": 393359\r\n    },\r\n    \"type\": \"MAX_APTC\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://uat-3scale.apps.npopenshift.wahpf.org:443/verification-determination/api/v1/invoke-fed-hub",
+          "protocol": "https",
+          "host": [
+            "uat-3scale",
+            "apps",
+            "npopenshift",
+            "wahpf",
+            "org"
+          ],
+          "port": "443",
+          "path": [
+            "verification-determination",
+            "api",
+            "v1",
+            "invoke-fed-hub"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Annual Income invoke",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "SOURCE-SYSTEM",
+            "value": "HBE",
+            "type": "default"
+          },
+          {
+            "key": "VERIFICATION-TYPE",
+            "value": "ANNUAL_INCOME",
+            "type": "default"
+          },
+          {
+            "key": "USER-ID",
+            "value": "",
+            "type": "default"
+          },
+          {
+            "key": "UUID",
+            "value": "41d0ed72-1886-40b3-2682-10ebf6f7b2a4",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"annualIncomeVerificationRequest\": {\r\n        \"irsVerificationsRequest\": [\r\n            {\r\n                \"requestId\": \"288\",\r\n                \"personID\": 825091,\r\n                \"applicationID\": 3152640,\r\n                \"personSSNIdentification\": \"100010387\",\r\n                \"personMembershipID\": 155191,\r\n                \"personGivenName\": \"Nolan\",\r\n                \"personSurName\": \"Freeman\",\r\n                \"personBirthDate\": \"1992-11-03T07:02:39.502Z\",\r\n                \"taxFilerCategoryCode\": \"PRIMARY\",\r\n                \"personSex\": \"M\",\r\n                \"isPrimaryApplicant\": true\r\n            }\r\n        ],\r\n        \"userId\": 187388\r\n    },\r\n    \"type\": \"ANNUAL_INCOME\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://uat-3scale.apps.npopenshift.wahpf.org:443/verification-determination/api/v1/invoke-fed-hub",
+          "protocol": "https",
+          "host": [
+            "uat-3scale",
+            "apps",
+            "npopenshift",
+            "wahpf",
+            "org"
+          ],
+          "port": "443",
+          "path": [
+            "verification-determination",
+            "api",
+            "v1",
+            "invoke-fed-hub"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Annual Income Fetch",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "VERIFICATION-TYPE",
+            "value": "IRS",
+            "type": "default"
+          },
+          {
+            "key": "SOURCE-SYSTEM",
+            "value": "HBE",
+            "type": "default"
+          },
+          {
+            "key": "USER-ID",
+            "value": "",
+            "type": "default"
+          },
+          {
+            "key": "UUID",
+            "value": "41d0ed72-1886-40b3-2682-10ebf6f7b2a4",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"verificationMap\": {\r\n        \"HOUSEHOLD_INCOME\": [\r\n            1081351563\r\n        ],\r\n        \"INDIVIDUAL_INCOME\": [\r\n            1081372554\r\n        ]\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://uat-3scale.apps.npopenshift.wahpf.org:443/verification-determination/api/v1/fetch-verification-details",
+          "protocol": "https",
+          "host": [
+            "uat-3scale",
+            "apps",
+            "npopenshift",
+            "wahpf",
+            "org"
+          ],
+          "port": "443",
+          "path": [
+            "verification-determination",
+            "api",
+            "v1",
+            "fetch-verification-details"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Annual Income Save",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "SOURCE-SYSTEM",
+            "value": "HBE",
+            "type": "default"
+          },
+          {
+            "key": "VERIFICATION-TYPE",
+            "value": "ANNUAL_INCOME",
+            "type": "default"
+          },
+          {
+            "key": "USER-ID",
+            "value": "",
+            "type": "default"
+          },
+          {
+            "key": "UUID",
+            "value": "41d0ed72-1886-40b3-2682-10ebf6f7b2a4",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"ftiIndividualIncomeDtoList\": [\r\n        {\r\n            \"tinIdentifierText\": \"310016631\",\r\n            \"taxReturnYear\": 2023,\r\n            \"taxReturnFilingStatusCode\": \"1\",\r\n            \"taxReturnMAGIAmount\": 21600,\r\n            \"taxReturnTaxableSSBenefitAmount\": 2400,\r\n            \"taxReturnTotalExemptionQuantity\": 0,\r\n            \"personGivenName\": \"Avery\",\r\n            \"personSurName\": \"Wilkinson\",\r\n            \"personBirthDate\": \"1992-11-03T07:02:39.502Z\",\r\n            \"personSSN\": \"310016631\",\r\n            \"responseCode\": \"HS000000\",\r\n            \"responseDescription\": \"Success\",\r\n            \"createdDate\": \"2023-01-03T13:11:40\",\r\n            \"createdBy\": 278016,\r\n            \"personId\": 242474,\r\n            \"applicationNumber\": 381359,\r\n            \"archivalDate\": \"2024-07-03T18:41:40\",\r\n            \"uuid\": \"41d0ed72-1886-40b3-2682-10ebf6f7b2a4\"\r\n        }\r\n    ],\r\n    \"ftiHouseholdincomeDtoList\": [\r\n        {\r\n            \"incomeAmount\": \"42000\",\r\n            \"personGivenName\": \"Avery\",\r\n            \"personSurName\": \"Wilkinson\",\r\n            \"personBirthDate\": \"1992-11-03T07:02:39.502Z\",\r\n            \"personSSN\": \"310016631\",\r\n            \"responseCode\": \"HS000000\",\r\n            \"responseDescription\": \"Success\",\r\n            \"createdDate\": \"2023-01-03T13:11:40\",\r\n            \"createdBy\": 278316,\r\n            \"applicationNumber\": 381359,\r\n            \"personId\": 242474,\r\n            \"archivalDate\": \"2024-07-03T18:41:40\",\r\n            \"uuid\": \"41d0ed72-1886-40b3-2682-10ebf6f7b2a4\"\r\n        }\r\n    ],\r\n    \"userId\": 278316,\r\n    \"type\": \"ANNUAL_INCOME\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://uat-3scale.apps.npopenshift.wahpf.org:443/verification-determination/api/v1/save-verification-details",
+          "protocol": "https",
+          "host": [
+            "uat-3scale",
+            "apps",
+            "npopenshift",
+            "wahpf",
+            "org"
+          ],
+          "port": "443",
+          "path": [
+            "verification-determination",
+            "api",
+            "v1",
+            "save-verification-details"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "NonESI invoke",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "SOURCE-SYSTEM",
+            "value": "HBE",
+            "type": "default"
+          },
+          {
+            "key": "VERIFICATION-TYPE",
+            "value": "NON_ESI",
+            "type": "default"
+          },
+          {
+            "key": "USER-ID",
+            "value": "",
+            "type": "default"
+          },
+          {
+            "key": "UUID",
+            "value": "41d0ed72-1886-40b3-2682-10ebf6f7b2a4",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nonEsiMecVerificationRequest\": {\r\n        \"nonEsiVerificationRequestList\": [\r\n            {\r\n                \"personID\": 5197174,\r\n                \"personMembershipId\": 5097174,\r\n                \"applicationId\": \"2186621\",\r\n                \"logclAppId\": 2086621,\r\n                \"insuranceStartDate\": \"2022-11-01T07:02:39.502Z\",\r\n                \"insuranceEndDate\": \"2022-12-31T07:02:39.502Z\",\r\n                \"personSsnIdentification\": \"121218875\",\r\n                \"personSex\": \"M\",\r\n                \"personBirthDate\": \"1992-11-03T07:02:39.502Z\",\r\n                \"personGivenName\": \"Makayla\",\r\n                \"personSurName\": \"Woods\",\r\n                \"organizationCode\": [\r\n                    \"MEDI\",\r\n                    \"VHPC\",\r\n                    \"TRIC\",\r\n                    \"PECO\"\r\n                ],\r\n                \"locationStateUSPostalServiceCode\": \"WA\"\r\n            }\r\n        ],\r\n        \"userId\": 633745\r\n    },\r\n    \"type\": \"NON_ESI\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://uat-3scale.apps.npopenshift.wahpf.org:443/verification-determination/api/v1/invoke-fed-hub",
+          "protocol": "https",
+          "host": [
+            "uat-3scale",
+            "apps",
+            "npopenshift",
+            "wahpf",
+            "org"
+          ],
+          "port": "443",
+          "path": [
+            "verification-determination",
+            "api",
+            "v1",
+            "invoke-fed-hub"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "NonESI Fetch",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "VERIFICATION-TYPE",
+            "value": "NON_IRS",
+            "type": "default"
+          },
+          {
+            "key": "SOURCE-SYSTEM",
+            "value": "HBE",
+            "type": "default"
+          },
+          {
+            "key": "USER-ID",
+            "value": "",
+            "type": "default"
+          },
+          {
+            "key": "UUID",
+            "value": "41d0ed72-1886-40b3-2682-10ebf6f7b2a4",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"verificationMap\": {\r\n        \"NON_ESI_MEDICARE_VERIFICATION\": [\r\n            1200140510\r\n        ],\r\n        \"NON_ESI_PECO_VERIFICATION\": [\r\n            1200140507\r\n        ],\r\n        \"NON_ESI_TRICARE_VERIFICATION\": [\r\n            1200140508\r\n        ],\r\n        \"NON_ESI_VHA_VERIFICATION\": [\r\n            1200140509\r\n        ]\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://uat-3scale.apps.npopenshift.wahpf.org:443/verification-determination/api/v1/fetch-verification-details",
+          "protocol": "https",
+          "host": [
+            "uat-3scale",
+            "apps",
+            "npopenshift",
+            "wahpf",
+            "org"
+          ],
+          "port": "443",
+          "path": [
+            "verification-determination",
+            "api",
+            "v1",
+            "fetch-verification-details"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "SSA invoke",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "SOURCE-SYSTEM",
+            "value": "HBE",
+            "type": "default"
+          },
+          {
+            "key": "VERIFICATION-TYPE",
+            "value": "SSA",
+            "type": "default"
+          },
+          {
+            "key": "USER-ID",
+            "value": "",
+            "type": "default"
+          },
+          {
+            "key": "UUID",
+            "value": "41d0ed72-1886-40b3-2682-10ebf6f7b2a4",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"ssaVerificationsRequest\" : {\r\n    \"commonVerificationsRequestType\" : [ {\r\n      \"personID\" : 45396131,\r\n      \"applicationID\" : \"897158\",\r\n      \"personSSNIdentification\" : \"564390340\",\r\n      \"personMembershipID\" : 1918786,\r\n      \"personGivenName\" : \"Fgikl\",\r\n      \"personMiddleName\" : null,\r\n      \"personSurName\" : \"Dhdd\",\r\n      \"personNameSuffixText\" : null,\r\n      \"personBirthDate\" : \"1990-10-10T00:00:00.000-07:00\",\r\n      \"requestCitizenshipVerificationIndicator\" : true,\r\n      \"requestIncarcerationVerificationIndicator\" : true,\r\n      \"requestTitleIIMonthlyIncomeVerificationIndicator\" : true,\r\n      \"requestTitleIIAnnualIncomeVerificationIndicator\" : true,\r\n      \"requestQuartersOfCoverageVerificationIndicator\" : false,\r\n      \"requestTitleIIMonthlyIncomeDate\" : \"202502\",\r\n      \"requestTitleIIAnnualIncomeDate\" : \"2024\",\r\n      \"logclAppId\" : 4575581\r\n    }, {\r\n      \"personID\" : 45396130,\r\n      \"applicationID\" : \"897158\",\r\n      \"personSSNIdentification\" : \"700116859\",\r\n      \"personMembershipID\" : 1918785,\r\n      \"personGivenName\" : \"Wendell\",\r\n      \"personMiddleName\" : null,\r\n      \"personSurName\" : \"Flowers\",\r\n      \"personNameSuffixText\" : null,\r\n      \"personBirthDate\" : \"1979-01-01T00:00:00.000-08:00\",\r\n      \"requestCitizenshipVerificationIndicator\" : false,\r\n      \"requestIncarcerationVerificationIndicator\" : false,\r\n      \"requestTitleIIMonthlyIncomeVerificationIndicator\" : true,\r\n      \"requestTitleIIAnnualIncomeVerificationIndicator\" : true,\r\n      \"requestQuartersOfCoverageVerificationIndicator\" : false,\r\n      \"requestTitleIIMonthlyIncomeDate\" : \"202502\",\r\n      \"requestTitleIIAnnualIncomeDate\" : \"2024\",\r\n      \"logclAppId\" : 4575581\r\n    } ]\r\n  },\r\n  \"nonEsiMecVerificationRequest\" : null,\r\n  \"equifaxVerificationsRequest\" : null,\r\n  \"maxAptcRequest\" : null,\r\n  \"annualIncomeVerificationRequest\" : null,\r\n  \"idProofingInitialRequest\" : null,\r\n  \"idProofingFinalRequest\" : null,\r\n  \"type\" : \"SSA\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://uat-3scale.apps.npopenshift.wahpf.org:443/verification-determination/api/v1/invoke-fed-hub",
+          "protocol": "https",
+          "host": [
+            "uat-3scale",
+            "apps",
+            "npopenshift",
+            "wahpf",
+            "org"
+          ],
+          "port": "443",
+          "path": [
+            "verification-determination",
+            "api",
+            "v1",
+            "invoke-fed-hub"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "SSA Composite",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "SOURCE-SYSTEM",
+            "value": "HBE",
+            "type": "default"
+          },
+          {
+            "key": "VERIFICATION-TYPE",
+            "value": "SSA",
+            "type": "default"
+          },
+          {
+            "key": "USER-ID",
+            "value": "",
+            "type": "default"
+          },
+          {
+            "key": "UUID",
+            "value": "41d0ed72-1886-40b3-2682-10ebf6f7b2a4",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"ssaVerificationsRequest\" : {\r\n    \"commonVerificationsRequestType\" : [ {\r\n      \"personID\" : 45396131,\r\n      \"applicationID\" : \"897158\",\r\n      \"personSSNIdentification\" : \"564390340\",\r\n      \"personMembershipID\" : 1918786,\r\n      \"personGivenName\" : \"Fgikl\",\r\n      \"personMiddleName\" : null,\r\n      \"personSurName\" : \"Dhdd\",\r\n      \"personNameSuffixText\" : null,\r\n      \"personBirthDate\" : \"1990-10-10T00:00:00.000-07:00\",\r\n      \"requestCitizenshipVerificationIndicator\" : true,\r\n      \"requestIncarcerationVerificationIndicator\" : true,\r\n      \"requestTitleIIMonthlyIncomeVerificationIndicator\" : true,\r\n      \"requestTitleIIAnnualIncomeVerificationIndicator\" : true,\r\n      \"requestQuartersOfCoverageVerificationIndicator\" : false,\r\n      \"requestTitleIIMonthlyIncomeDate\" : \"202502\",\r\n      \"requestTitleIIAnnualIncomeDate\" : \"2024\",\r\n      \"logclAppId\" : 4575581\r\n    }, {\r\n      \"personID\" : 45396130,\r\n      \"applicationID\" : \"897158\",\r\n      \"personSSNIdentification\" : \"700116859\",\r\n      \"personMembershipID\" : 1918785,\r\n      \"personGivenName\" : \"Wendell\",\r\n      \"personMiddleName\" : null,\r\n      \"personSurName\" : \"Flowers\",\r\n      \"personNameSuffixText\" : null,\r\n      \"personBirthDate\" : \"1979-01-01T00:00:00.000-08:00\",\r\n      \"requestCitizenshipVerificationIndicator\" : false,\r\n      \"requestIncarcerationVerificationIndicator\" : false,\r\n      \"requestTitleIIMonthlyIncomeVerificationIndicator\" : true,\r\n      \"requestTitleIIAnnualIncomeVerificationIndicator\" : true,\r\n      \"requestQuartersOfCoverageVerificationIndicator\" : false,\r\n      \"requestTitleIIMonthlyIncomeDate\" : \"202502\",\r\n      \"requestTitleIIAnnualIncomeDate\" : \"2024\",\r\n      \"logclAppId\" : 4575581\r\n    } ]\r\n  },\r\n  \"nonEsiMecVerificationRequest\" : null,\r\n  \"equifaxVerificationsRequest\" : null,\r\n  \"maxAptcRequest\" : null,\r\n  \"annualIncomeVerificationRequest\" : null,\r\n  \"idProofingInitialRequest\" : null,\r\n  \"idProofingFinalRequest\" : null,\r\n  \"type\" : \"SSA\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://uat-3scale.apps.npopenshift.wahpf.org:443/verification-determination/api/v1/invoke-fed-hub",
+          "protocol": "https",
+          "host": [
+            "uat-3scale",
+            "apps",
+            "npopenshift",
+            "wahpf",
+            "org"
+          ],
+          "port": "443",
+          "path": [
+            "verification-determination",
+            "api",
+            "v1",
+            "invoke-fed-hub"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "SSA Fetch",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "VERIFICATION-TYPE",
+            "value": "NON_IRS",
+            "type": "default"
+          },
+          {
+            "key": "SOURCE-SYSTEM",
+            "value": "HBE",
+            "type": "default"
+          },
+          {
+            "key": "USER-ID",
+            "value": "",
+            "type": "default"
+          },
+          {
+            "key": "UUID",
+            "value": "41d0ed72-1886-40b3-2682-10ebf6f7b2a4",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"verificationMap\": {\r\n        \"SSN_VERIFICATION\": [\r\n            1200159415\r\n        ],\r\n        \"CITIZENSHIP_VERIFICATION\": [\r\n            1200128507\r\n        ],\r\n        \"INCARCERATION_VERIFICATION\": [\r\n            1200100444\r\n        ],\r\n        \"TITLE_II_MONTHLY_INCOME_VERIFICATION\": [\r\n            1200160931\r\n        ],\r\n        \"TITLE_II_YEARLY_INCOME_VERIFICATION\": [\r\n            1200160931\r\n        ]\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://uat-3scale.apps.npopenshift.wahpf.org:443/verification-determination/api/v1/fetch-verification-details",
+          "protocol": "https",
+          "host": [
+            "uat-3scale",
+            "apps",
+            "npopenshift",
+            "wahpf",
+            "org"
+          ],
+          "port": "443",
+          "path": [
+            "verification-determination",
+            "api",
+            "v1",
+            "fetch-verification-details"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "SSA Save",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "SOURCE-SYSTEM",
+            "value": "HBE",
+            "type": "default"
+          },
+          {
+            "key": "VERIFICATION-TYPE",
+            "value": "SSA",
+            "type": "default"
+          },
+          {
+            "key": "USER-ID",
+            "value": "",
+            "type": "default"
+          },
+          {
+            "key": "UUID",
+            "value": "41d0ed72-1886-40b3-2682-10ebf6f7b2a4",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"citizenshipVerificationList\": [\r\n        {\r\n            \"createdDate\": \"2023-01-03T13:17:18\",\r\n            \"createdBy\": 663551,\r\n            \"isPersonUSCitizen\": true,\r\n            \"personGivenName\": \"Ian\",\r\n            \"personSurName\": \"Sims\",\r\n            \"personBirthDate\": \"1992-11-03T07:02:39.502Z\",\r\n            \"personSSN\": \"192716383\",\r\n            \"requestUUID\": \"41d0ed72-1886-40b3-2682-10ebf6f7b2a4\",\r\n            \"personId\": 561641,\r\n            \"applicationNumber\": 383343,\r\n            \"archivalDate\": \"2024-07-03T18:47:18\"\r\n        }\r\n    ],\r\n    \"incarcerationVerificationList\": [\r\n        {\r\n            \"createdDate\": \"2023-01-03T13:17:18\",\r\n            \"createdBy\": 663551,\r\n            \"isPersonIncarcerated\": false,\r\n            \"responseCode\": \"HS000000\",\r\n            \"responseDescriptionText\": \"Success\",\r\n            \"personGivenName\": \"Ian\",\r\n            \"personSurName\": \"Sims\",\r\n            \"personBirthDate\": \"1992-11-03T07:02:39.502Z\",\r\n            \"personSSN\": \"192716383\",\r\n            \"requestUUID\": \"41d0ed72-1886-40b3-2682-10ebf6f7b2a4\",\r\n            \"personId\": 561641,\r\n            \"applicationNumber\": 383343,\r\n            \"archivalDate\": \"2024-07-03T18:47:18\"\r\n        }\r\n    ],\r\n    \"ssnVerificationList\": [\r\n        {\r\n            \"createdDate\": \"2023-01-03T13:17:18\",\r\n            \"createdBy\": 663551,\r\n            \"deathConfirmationCode\": \"Unconfirmed\",\r\n            \"isSSNVerified\": true,\r\n            \"responseDescription\": \"Success\",\r\n            \"responseCode\": \"HS000000\",\r\n            \"personGivenName\": \"Ian\",\r\n            \"personSurName\": \"Sims\",\r\n            \"personBirthDate\": \"1992-11-03T07:02:39.502Z\",\r\n            \"personSSN\": \"192716383\",\r\n            \"requestUUID\": \"41d0ed72-1886-40b3-2682-10ebf6f7b2a4\",\r\n            \"personId\": 561641,\r\n            \"applicationNumber\": 383343,\r\n            \"archivalDate\": \"2024-07-03T18:47:18\"\r\n        }\r\n    ],\r\n    \"titleIIMonthlyIncomeVerificationList\": [\r\n        {\r\n            \"createdDate\": \"2023-01-03T13:17:18\",\r\n            \"createdBy\": 663551,\r\n            \"ongoingMonthlyBenefitCreditedAmount\": 0.00,\r\n            \"ongoingMonthlyOverpaymentDeductionAmount\": 0.00,\r\n            \"isSSATitleIIMonthlyIncome\": true,\r\n            \"isPersonDisabled\": false,\r\n            \"isOngoingPaymentInSuspense\": false,\r\n            \"personGivenName\": \"Ian\",\r\n            \"personSurName\": \"Sims\",\r\n            \"personBirthDate\": \"1992-11-03T07:02:39.502Z\",\r\n            \"personSSN\": \"192716383\",\r\n            \"requestUUID\": \"41d0ed72-1886-40b3-2682-10ebf6f7b2a4\",\r\n            \"personId\": 561641,\r\n            \"applicationNumber\": 383343,\r\n            \"archivalDate\": \"2024-07-03T18:47:18\",\r\n            \"titleIIMonthlyIncomeDetails\": [\r\n                {\r\n                    \"createdDate\": \"2023-01-03T13:17:18\",\r\n                    \"createdBy\": 663551,\r\n                    \"returnedCheckAmount\": 123.0,\r\n                    \"isPaymentInSuspense\": false,\r\n                    \"benefitCreditedAmount\": 200.0,\r\n                    \"netMonthlyBenefitCreditedAmount\": 67.0,\r\n                    \"incomeMonthYear\": \"202110\",\r\n                    \"priorMonthAccrualAmount\": 543.0,\r\n                    \"overpaymentDeductionAmount\": 45.0,\r\n                    \"monthlyIncomeAmount\": 1234.0,\r\n                    \"archivalDate\": \"2024-07-03T18:47:18\",\r\n                    \"requestUUID\": \"41d0ed72-1886-40b3-2682-10ebf6f7b2a4\"\r\n                },\r\n                {\r\n                    \"createdDate\": \"2023-01-03T13:17:18\",\r\n                    \"createdBy\": 663551,\r\n                    \"returnedCheckAmount\": 123.0,\r\n                    \"isPaymentInSuspense\": false,\r\n                    \"benefitCreditedAmount\": 200.0,\r\n                    \"netMonthlyBenefitCreditedAmount\": 67.0,\r\n                    \"incomeMonthYear\": \"202109\",\r\n                    \"priorMonthAccrualAmount\": 543.0,\r\n                    \"overpaymentDeductionAmount\": 45.0,\r\n                    \"monthlyIncomeAmount\": 1234.0,\r\n                    \"archivalDate\": \"2024-07-03T18:47:18\",\r\n                    \"requestUUID\": \"41d0ed72-1886-40b3-2682-10ebf6f7b2a4\"\r\n                },\r\n                {\r\n                    \"createdDate\": \"2023-01-03T13:17:18\",\r\n                    \"createdBy\": 663551,\r\n                    \"returnedCheckAmount\": 123.0,\r\n                    \"isPaymentInSuspense\": false,\r\n                    \"benefitCreditedAmount\": 200.0,\r\n                    \"netMonthlyBenefitCreditedAmount\": 67.0,\r\n                    \"incomeMonthYear\": \"202108\",\r\n                    \"priorMonthAccrualAmount\": 543.0,\r\n                    \"overpaymentDeductionAmount\": 45.0,\r\n                    \"monthlyIncomeAmount\": 1234.0,\r\n                    \"archivalDate\": \"2024-07-03T18:47:18\",\r\n                    \"requestUUID\": \"41d0ed72-1886-40b3-2682-10ebf6f7b2a4\"\r\n                },\r\n                {\r\n                    \"createdDate\": \"2023-01-03T13:17:18\",\r\n                    \"createdBy\": 663551,\r\n                    \"returnedCheckAmount\": 123.0,\r\n                    \"isPaymentInSuspense\": false,\r\n                    \"benefitCreditedAmount\": 200.0,\r\n                    \"netMonthlyBenefitCreditedAmount\": 67.0,\r\n                    \"incomeMonthYear\": \"202107\",\r\n                    \"priorMonthAccrualAmount\": 543.0,\r\n                    \"overpaymentDeductionAmount\": 45.0,\r\n                    \"monthlyIncomeAmount\": 1234.0,\r\n                    \"archivalDate\": \"2024-07-03T18:47:18\",\r\n                    \"requestUUID\": \"41d0ed72-1886-40b3-2682-10ebf6f7b2a4\"\r\n                }\r\n            ]\r\n        }\r\n    ],\r\n    \"titleIIYearlyIncomeVerificationList\": [\r\n        {\r\n            \"createdDate\": \"2023-01-03T13:17:18\",\r\n            \"createdBy\": 663551,\r\n            \"yearlyIncomeAmount\": 45097.0,\r\n            \"isSSATitleIIAnnualIncomeInformation\": true,\r\n            \"incomeDate\": \"2019\",\r\n            \"personGivenName\": \"Ian\",\r\n            \"personSurName\": \"Sims\",\r\n            \"personBirthDate\": \"1992-11-03T07:02:39.502Z\",\r\n            \"personSSN\": \"192716383\",\r\n            \"requestUUID\": \"41d0ed72-1886-40b3-2682-10ebf6f7b2a4\",\r\n            \"personId\": 561641,\r\n            \"applicationNumber\": 383343,\r\n            \"archivalDate\": \"2024-07-03T18:47:18\"\r\n        }\r\n    ],\r\n    \"type\": \"SSA\",\r\n    \"userId\": 663551\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://uat-3scale.apps.npopenshift.wahpf.org:443/verification-determination/api/v1/save-verification-details",
+          "protocol": "https",
+          "host": [
+            "uat-3scale",
+            "apps",
+            "npopenshift",
+            "wahpf",
+            "org"
+          ],
+          "port": "443",
+          "path": [
+            "verification-determination",
+            "api",
+            "v1",
+            "save-verification-details"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Equifax invoke",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "SOURCE-SYSTEM",
+            "value": "HBE",
+            "type": "default"
+          },
+          {
+            "key": "VERIFICATION-TYPE",
+            "value": "EQUIFAX",
+            "type": "default"
+          },
+          {
+            "key": "USER-ID",
+            "value": "",
+            "type": "default"
+          },
+          {
+            "key": "UUID",
+            "value": "41d0ed72-1886-40b3-2682-10ebf6f7b2a4",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"equifaxVerificationsRequest\": {\r\n        \"currentIncomeVerificationsRequest\": [\r\n            {\r\n                \"requestId\": \"100\",\r\n                \"personID\": 833351,\r\n                \"applicationID\": 5417463,\r\n                \"personSSNIdentification\": \"107758941\",\r\n                \"personMembershipID\": 561536,\r\n                \"personGivenName\": \"Jason\",\r\n                \"personSurName\": \"Cervantes\",\r\n                \"personNameSuffixText\": \"Jr\",\r\n                \"personBirthDate\": \"1992-11-03T07:02:39.502Z\",\r\n                \"logclAppId\" : 383350\r\n            }\r\n        ]\r\n    },\r\n    \"type\": \"EQUIFAX\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://uat-3scale.apps.npopenshift.wahpf.org:443/verification-determination/api/v1/invoke-fed-hub",
+          "protocol": "https",
+          "host": [
+            "uat-3scale",
+            "apps",
+            "npopenshift",
+            "wahpf",
+            "org"
+          ],
+          "port": "443",
+          "path": [
+            "verification-determination",
+            "api",
+            "v1",
+            "invoke-fed-hub"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Equifax Fetch",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "VERIFICATION-TYPE",
+            "value": "NON_IRS",
+            "type": "default"
+          },
+          {
+            "key": "SOURCE-SYSTEM",
+            "value": "HBE",
+            "type": "default"
+          },
+          {
+            "key": "USER-ID",
+            "value": "",
+            "type": "default"
+          },
+          {
+            "key": "UUID",
+            "value": "41d0ed72-1886-40b3-2682-10ebf6f7b2a4",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"verificationMap\": {\r\n    \"CURRENT_INCOME\": [1200213453]\r\n  }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://uat-3scale.apps.npopenshift.wahpf.org:443/verification-determination/api/v1/fetch-verification-details",
+          "protocol": "https",
+          "host": [
+            "uat-3scale",
+            "apps",
+            "npopenshift",
+            "wahpf",
+            "org"
+          ],
+          "port": "443",
+          "path": [
+            "verification-determination",
+            "api",
+            "v1",
+            "fetch-verification-details"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Equifax Current Income Details",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "SOURCE-SYSTEM",
+            "value": "HBE",
+            "type": "default"
+          },
+          {
+            "key": "VERIFICATION-TYPE",
+            "value": "EQUIFAX",
+            "type": "default"
+          },
+          {
+            "key": "USER-ID",
+            "value": "",
+            "type": "default"
+          },
+          {
+            "key": "UUID",
+            "value": "41d0ed72-1886-40b3-2682-10ebf6f7b2a4",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://uat-3scale.apps.npopenshift.wahpf.org:443/verification-determination/api/v1/current-income-details?currentIncomeInfoIds=1200213453",
+          "protocol": "https",
+          "host": [
+            "uat-3scale",
+            "apps",
+            "npopenshift",
+            "wahpf",
+            "org"
+          ],
+          "port": "443",
+          "path": [
+            "verification-determination",
+            "api",
+            "v1",
+            "current-income-details"
+          ],
+          "query": [
+            {
+              "key": "currentIncomeInfoIds",
+              "value": "1200213453"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Equifax Save",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "SOURCE-SYSTEM",
+            "value": "HBE",
+            "type": "default"
+          },
+          {
+            "key": "VERIFICATION-TYPE",
+            "value": "EQUIFAX",
+            "type": "default"
+          },
+          {
+            "key": "USER-ID",
+            "value": "",
+            "type": "default"
+          },
+          {
+            "key": "UUID",
+            "value": "41d0ed72-1886-40b3-2682-10ebf6f7b2a4",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"currentIncomeInfoDtoList\": [\r\n    {\r\n      \"currentIncomeInfoId\": 0,\r\n      \"asOfDate\": \"2023-02-15T18:39:46.654Z\",\r\n      \"verificationIdText\": \"1111\",\r\n      \"employeeFirstName\": \"personFName\",\r\n      \"employeeMiddleName\": \"personMiddleName\",\r\n      \"employeeLastName\": \"personLastName\",\r\n      \"employeeDateOfBirth\": \"2023-02-15T18:39:46.654Z\",\r\n      \"employeeSSN\": \"150387489\",\r\n      \"employerOrganizationId\": \"11-2222222\",\r\n      \"employerOrganizationName\": \"ILL RICHARD\",\r\n      \"employmentStatusCode\": 1,\r\n      \"employmentAssociationBeginDate\": \"2023-02-15T18:39:46.654Z\",\r\n      \"employmentAssociationEndDate\": \"2023-02-15T18:39:46.654Z\",\r\n      \"baseCompensationIncomeAmount\": 200,\r\n      \"baseCompensationPayFrequencyCode\": 1,\r\n      \"baseCompensationPayPeriodFrequencyCode\": 1,\r\n      \"employmentStatusDesc\": \"Active\",\r\n      \"baseCompensationAnnualizedIncomeAmount\": 18760,\r\n      \"baseCompensationPayFrequencyDesc\": \"Annual\",\r\n      \"baseCompensationPayPeriodFrequencyDesc\": \"1\",\r\n      \"createdDate\": \"2023-02-15T18:39:46.654Z\",\r\n      \"createdBy\": 92312,\r\n      \"updatedDate\": \"2023-02-15T18:39:46.654Z\",\r\n      \"updatedBy\": 92312,\r\n      \"versionNumber\": 1,\r\n      \"applicationNumber\": 383320,\r\n      \"personId\": 19878,\r\n      \"archivalDate\": \"2023-02-15T18:39:46.654Z\",\r\n      \"requestUUID\": \"1238\",\r\n      \"traceGUID\": \"string\",\r\n      \"deletedDate\": \"2023-02-15T18:39:46.654Z\",\r\n      \"tier\": \"1\",\r\n      \"employmentOriginalHireDate\": \"2023-02-15T18:39:46.654Z\",\r\n      \"responseCode\": \"200\",\r\n      \"responseDescription\": \"Success\",\r\n      \"gettDSResponse\": \"string\",\r\n      \"personBirthDate\": \"2023-02-15T18:39:46.654Z\",\r\n      \"personGivenName\": \"PersonGivenName\",\r\n      \"personSurName\": \"PersonSurName\",\r\n      \"personSSN\": \"119991199\",\r\n      \"personMiddleName\": \"PersonMiddleName\",\r\n      \"personNameSuffix\": \"Jr\",\r\n      \"instanceId\": 0,\r\n      \"currentIncomePayPeriod\": [\r\n        {\r\n          \"currentIncomeInfoId\": 0,\r\n          \"endDate\": \"2023-02-15T18:39:46.654Z\",\r\n          \"incomeDate\": \"2023-02-15T18:39:46.654Z\",\r\n          \"hoursPerWeek\": 40,\r\n          \"incomeAmount\": 20800,\r\n          \"createdDate\": \"2023-02-15T18:39:46.654Z\",\r\n          \"updatedDate\": \"2023-02-15T18:39:46.654Z\",\r\n          \"createdBy\": 91222,\r\n          \"updatedBy\": 0,\r\n          \"versionNumber\": 1,\r\n          \"applicationNumber\": 383320,\r\n          \"personId\": 19878,\r\n          \"traceGUID\": \"3f08dda6eebb7a7e641b6ee9fac62626\",\r\n          \"archivalDate\": \"2023-02-15T18:39:46.654Z\",\r\n          \"requestUUID\": \"41d0ed72-1886-40b3-2682-10ebf6f7b2a4\",\r\n          \"incomeNetPaymentAmount\": 123411\r\n        }\r\n      ],\r\n      \"currentIncomeAnnualCompensation\": [\r\n        {\r\n          \"compensationIncomeYearNumber\": 2014,\r\n          \"baseCompensationAmount\": 18720,\r\n          \"totalCompensationAmount\": 18721,\r\n          \"createdDate\": \"2023-02-15T18:39:46.654Z\",\r\n          \"createdBy\": 91222,\r\n          \"updatedDate\": \"2023-02-15T18:39:46.654Z\",\r\n          \"updatedBy\": 0,\r\n          \"versionNumber\": 1,\r\n          \"traceGUID\": \"3f08dda6eebb7a7e641b6ee9fac62626\",\r\n          \"requestUUID\": \"41d0ed72-1886-40b3-2682-10ebf6f7b2a4\",\r\n          \"applicationNumber\": 383320,\r\n          \"personId\": 19878,\r\n          \"archivalDate\": \"2023-02-15T18:39:46.654Z\"\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \"type\": \"EQUIFAX\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://uat-3scale.apps.npopenshift.wahpf.org:443/verification-determination/api/v1/save-verification-details",
+          "protocol": "https",
+          "host": [
+            "uat-3scale",
+            "apps",
+            "npopenshift",
+            "wahpf",
+            "org"
+          ],
+          "port": "443",
+          "path": [
+            "verification-determination",
+            "api",
+            "v1",
+            "save-verification-details"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "VLP invoke",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "username",
+            "value": "hbe-app",
+            "type": "default"
+          },
+          {
+            "key": "password",
+            "value": "password",
+            "type": "default"
+          },
+          {
+            "key": "grant_type",
+            "value": "password",
+            "type": "default"
+          },
+          {
+            "key": "UUID",
+            "value": "40d2ed72-1886-40b3-2682-10ebf6f7b2a4",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"lawfulPresenceDetailId\": null,\r\n    \"firstName\": \"Tarah\",\r\n    \"middleName\": null,\r\n    \"lastName\": \"Weaver\",\r\n    \"dateOfBirth\": \"1979-01-01\",\r\n    \"fiveYearBarApplicabilityIndicator\": false,\r\n    \"requestGrantDateIndicator\": true,\r\n    \"requesterCommentsForHub\": null,\r\n    \"casePOCFullName\": null,\r\n    \"casePOCPhoneNumber\": null,\r\n    \"casePOCPhoneNumberExtension\": null,\r\n    \"requestSponsorDataIndicator\": false,\r\n    \"alienNumber\": null,\r\n    \"docExpirationDate\": null,\r\n    \"passportExpirationDate\": \"2028-10-10\",\r\n    \"receiptNumber\": null,\r\n    \"citizenshipNumber\": null,\r\n    \"naturalizationNumber\": null,\r\n    \"visaNumber\": null,\r\n    \"countryOfIssuance\": \"IND\",\r\n    \"passportNumber\": \"m0428750\",\r\n    \"passportCountry\": null,\r\n    \"i94Number\": null,\r\n    \"sevisId\": null,\r\n    \"docDescReq\": null,\r\n    \"entryDate\": \"2021-10-10\",\r\n    \"systemDate\": \"2024-01-24 09:57:09\",\r\n    \"aka\": null,\r\n    \"suspectedCounterfeitAlteredDocumentIndicator\": false,\r\n    \"requestCubanHaitianEntrantIndicator\": false,\r\n    \"documentBinaryAttachment\": null\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://dev-3scale.apps.npopenshift.wahpf.org/VLPDtmnMicroservice/api/v2/vlpdetermination",
+          "protocol": "https",
+          "host": [
+            "dev-3scale",
+            "apps",
+            "npopenshift",
+            "wahpf",
+            "org"
+          ],
+          "path": [
+            "VLPDtmnMicroservice",
+            "api",
+            "v2",
+            "vlpdetermination"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "VLP Retrieve Step2",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "username",
+            "value": "hbe-app",
+            "type": "default"
+          },
+          {
+            "key": "password",
+            "value": "password",
+            "type": "default"
+          },
+          {
+            "key": "grant_type",
+            "value": "password",
+            "type": "default"
+          },
+          {
+            "key": "UUID",
+            "value": "40d2ed72-1886-40b3-2682-10ebf6f7b2a4",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"caseNumber\": \"F573314109012NV\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://uat-3scale.apps.npopenshift.wahpf.org/VLPDtmnMicroservice/api/v2/vlpdetermination/retrievestep2case",
+          "protocol": "https",
+          "host": [
+            "uat-3scale",
+            "apps",
+            "npopenshift",
+            "wahpf",
+            "org"
+          ],
+          "path": [
+            "VLPDtmnMicroservice",
+            "api",
+            "v2",
+            "vlpdetermination",
+            "retrievestep2case"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "VLP Retrieve lawful detail by ID",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "username",
+            "value": "hbe-app",
+            "type": "default"
+          },
+          {
+            "key": "password",
+            "value": "password",
+            "type": "default"
+          },
+          {
+            "key": "grant_type",
+            "value": "password",
+            "type": "default"
+          },
+          {
+            "key": "UUID",
+            "value": "40d2ed72-1886-40b3-2682-10ebf6f7b2a4",
+            "type": "default"
+          },
+          {
+            "key": "loginUserId",
+            "value": "",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://uat-3scale.apps.npopenshift.wahpf.org/VLPDtmnMicroservice/api/v2/vlpdetermination/retrievestep2case/lawfulpresencedetail?lawfulPresenceId",
+          "protocol": "https",
+          "host": [
+            "uat-3scale",
+            "apps",
+            "npopenshift",
+            "wahpf",
+            "org"
+          ],
+          "path": [
+            "VLPDtmnMicroservice",
+            "api",
+            "v2",
+            "vlpdetermination",
+            "retrievestep2case",
+            "lawfulpresencedetail"
+          ],
+          "query": [
+            {
+              "key": "lawfulPresenceId",
+              "value": null
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "VLP Retrieve lawful detail by Casenumber",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "username",
+            "value": "hbe-app",
+            "type": "default"
+          },
+          {
+            "key": "password",
+            "value": "password",
+            "type": "default"
+          },
+          {
+            "key": "grant_type",
+            "value": "password",
+            "type": "default"
+          },
+          {
+            "key": "UUID",
+            "value": "40d2ed72-1886-40b3-2682-10ebf6f7b2a4",
+            "type": "default"
+          }
+        ],
+        "url": {
+          "raw": "https://uat-3scale.apps.npopenshift.wahpf.org/VLPDtmnMicroservice/api/v2/vlpdetermination/retrievestep2case/lawfulpresencedetail/bycasenumber?caseNumber",
+          "protocol": "https",
+          "host": [
+            "uat-3scale",
+            "apps",
+            "npopenshift",
+            "wahpf",
+            "org"
+          ],
+          "path": [
+            "VLPDtmnMicroservice",
+            "api",
+            "v2",
+            "vlpdetermination",
+            "retrievestep2case",
+            "lawfulpresencedetail",
+            "bycasenumber"
+          ],
+          "query": [
+            {
+              "key": "caseNumber",
+              "value": null
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "VLP Closecase",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "username",
+            "value": "hbe-app",
+            "type": "default"
+          },
+          {
+            "key": "password",
+            "value": "password",
+            "type": "default"
+          },
+          {
+            "key": "grant_type",
+            "value": "password",
+            "type": "default"
+          },
+          {
+            "key": "UUID",
+            "value": "40d2ed72-1886-40b3-2682-10ebf6f7b2a4",
+            "type": "default"
+          }
+        ],
+        "url": {
+          "raw": "https://uat-3scale.apps.npopenshift.wahpf.org/VLPDtmnMicroservice/api/v2/vlpdetermination/closecase?caseNumber",
+          "protocol": "https",
+          "host": [
+            "uat-3scale",
+            "apps",
+            "npopenshift",
+            "wahpf",
+            "org"
+          ],
+          "path": [
+            "VLPDtmnMicroservice",
+            "api",
+            "v2",
+            "vlpdetermination",
+            "closecase"
+          ],
+          "query": [
+            {
+              "key": "caseNumber",
+              "value": null
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
